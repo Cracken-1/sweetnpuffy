@@ -25,17 +25,17 @@ The website uses a warm, inviting color palette inspired by the provided PDF:
 - Professional branding with Sweet n' Puffy logo
 
 ### 2. **Interactive Gallery**
-- **Filterable portfolio** showcasing bakery products
-- Categories: All, Cakes, Pastries, Cupcakes, Special Orders
-- **Hover effects** with product descriptions
+- **Modern masonry layout** with different card sizes
+- **Lightbox functionality** for detailed image viewing
+- **Category filtering** with smooth animations
+- **WhatsApp integration** for direct ordering from gallery
 - Uses all 20 sample images provided
-- **Lazy loading** for optimal performance
 
 ### 3. **Comprehensive Menu & Pricing**
-- **Detailed pricing structure** for different product categories
-- Custom cakes, pastries, cupcakes, and specialty items
-- **Professional presentation** with clear pricing
-- Special notes about customization
+- **Card-style layout** with product images
+- **Category filtering** for easy browsing
+- **Kenyan Shilling pricing** for local market
+- **WhatsApp ordering** from menu items
 
 ### 4. **Interactive Map Integration**
 - **Leaflet.js map** showing bakery location
@@ -44,9 +44,9 @@ The website uses a warm, inviting color palette inspired by the provided PDF:
 - Mobile-friendly map controls
 
 ### 5. **Advanced Contact System**
-- **Multi-channel contact options**: Phone, Email, WhatsApp
+- **WhatsApp-first approach** for orders
 - **Smart contact form** with validation
-- **WhatsApp integration** - orders automatically format and open WhatsApp
+- **Live WhatsApp chat widget** with quick replies
 - **Form validation** with user-friendly error messages
 
 ### 6. **Services Showcase**
@@ -57,10 +57,11 @@ The website uses a warm, inviting color palette inspired by the provided PDF:
 - Dietary accommodations
 - Professional consultation
 
-### 7. **Professional About Section**
-- Brand story and mission
-- **Feature highlights** with icons
-- Trust-building content
+### 7. **Modern UI Features**
+- **Scroll progress bar** for visual feedback
+- **WhatsApp chat widget** with realistic interface
+- **Smooth animations** and hover effects
+- **Mobile-optimized** responsive design
 
 ## 📱 Technical Features
 
@@ -85,9 +86,9 @@ The website uses a warm, inviting color palette inspired by the provided PDF:
 
 ### Interactive Elements
 - **Gallery filtering** with smooth transitions
-- **Hover effects** throughout the site
+- **Lightbox modal** for image viewing
+- **WhatsApp chat widget** with quick replies
 - **Form validation** with real-time feedback
-- **Notification system** for user feedback
 
 ## 🛠️ Technologies Used
 
@@ -104,7 +105,7 @@ The website uses a warm, inviting color palette inspired by the provided PDF:
 The website prominently features Patricia's contact information:
 - **Phone**: 0704 939 844
 - **WhatsApp**: Direct messaging with pre-formatted order requests
-- **Email**: Professional contact form
+- **Live Chat Widget**: Instant communication
 - **Location**: Interactive map with directions
 
 ## 🎯 Business Benefits
@@ -156,5 +157,13 @@ The website prominently features Patricia's contact information:
 4. **Interactive**: Engages visitors with dynamic content
 5. **Conversion-Focused**: Designed to turn visitors into customers
 6. **Scalable**: Easy to update and expand as business grows
+
+## 👨‍💻 Developer
+
+**Website developed by Alphonce Mukaisi**
+- Phone: 0727 497 815
+- Professional web development services
+
+---
 
 This website positions Sweet n' Puffy as a premium, professional bakery while making it easy for customers to browse products, get information, and place orders. The combination of visual appeal, functionality, and user experience creates an effective online presence that will help Patricia reach a wider audience and grow her bakery business.
