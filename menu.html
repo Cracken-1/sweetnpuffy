@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu & Pricing - Sweet n' Puffy</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2><a href="index.html" style="text-decoration: none; color: inherit;">Sweet n' Puffy</a></h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="menu.html" class="nav-link active">Menu & Prices</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Menu Hero -->
+    <section class="page-hero">
+        <div class="container">
+            <h1>Menu & Pricing</h1>
+            <p>Delicious options for every taste and budget</p>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="menu">
+        <div class="container">
+            <!-- Menu Filters -->
+            <div class="menu-filters">
+                <button class="menu-filter-btn active" data-filter="all">All Items</button>
+                <button class="menu-filter-btn" data-filter="cakes">Cakes</button>
+                <button class="menu-filter-btn" data-filter="pastries">Pastries</button>
+                <button class="menu-filter-btn" data-filter="treats">Treats</button>
+                <button class="menu-filter-btn" data-filter="bread">Bread</button>
+                <button class="menu-filter-btn" data-filter="special">Special</button>
+            </div>
+
+            <!-- Menu Grid -->
+            <div class="menu-grid">
+                <!-- Signature Cakes -->
+                <div class="menu-card" data-category="cakes">
+                    <div class="menu-card-image">
+                        <img src="assets/images/sample1.png" alt="Chocolate Fudge Cake" loading="lazy">
+                    </div>
+                    <div class="menu-card-content">
+                        <h3>Chocolate Fudge Cake</h3>
+                        <p>Rich chocolate layers with premium fudge frosting</p>
+                        <div class="menu-card-price">KSh 2,500</div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="cakes">
+                    <div class="menu-card-image">
+                        <img src="assets/images/sample2.png" alt="Red Velvet Cake" loading="lazy">
+                    </div>
+                    <div class="menu-card-content">
+                        <h3>Red Velvet Cake</h3>
+                        <p>Classic red velvet with cream cheese frosting</p>
+                        <div class="menu-card-price">KSh 2,800</div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="cakes">
+                    <div class="menu-card-image">
+                        <img src="assets/images/sample5.png" alt="Vanilla Sponge Cake" loading="lazy">
+                    </div>
+                    <div class="menu-card-content">
+                        <h3>Vanilla Sponge Cake</h3>
+                        <p>Light and fluffy vanilla cake with buttercream</p>
+                        <div class="menu-card-price">KSh 2,200</div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="cakes">
+                    <div class="menu-card-image">
+                        <img src="assets/images/sample9.png" alt="Carrot Cake" loading="lazy">
+                    </div>
+                    <div class="menu-card-content">
+                        <h3>Carrot Cake</h3>
+                        <p>Moist carrot cake with cream cheese frosting and walnuts</p>
+                        <div class="menu-card-price">KSh 2,600</div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="cakes">
+                    <div class="menu-card-image">
+                        <img src="assets/images/sample12.png" alt="Black Forest Cake" loading="lazy">
+                    </div>
+                    <div class="menu-card-content">
+                        <h3>Black Forest Cake</h3>
+                        <p>Chocolate cake with cherries and whipped cream</p>
+                        <div class="menu-card-price">KSh 3,200</div>
+                    </div>
+                </div>
+
+                <!-- Fresh Pastries -->
+                <div class="menu-card" data-category="pastries">
+                    <div class="menu-card-image">
+                        <img src="assets/images/sample3.png" alt="Croissants" loading="lazy">
+                    </div>
+                    <div class="menu-card-content">
+                        <h3>Fresh Croissants</h3>
+                        <p>Buttery, flaky pastries - plain, chocolate, or almond</p>
+                        <div class="menu-card-price">KSh 150 each</div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="pastries">
+                    <div class="menu-card-image">
+                        <img src="assets/images/sample6.png" alt="Danish Pastries" loading="lazy">
+                    </div>
+                    <div class="menu-card-content">
+                        <h3>Danish Pastries</h3>
+                        <p>Fruit-filled delicate pastries, assorted varieties</p>
+                        <div class="menu-card-price">KSh 200 each</div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="pastries">
+                    <div class="menu-card-image">
+                        <img src="assets/images/sample10.png" alt="Meat Pies" loading="lazy">
+                    </div>
+                    <div class="menu-card-content">
+                        <h3>Meat Pies</h3>
+                        <p>Savory pastries filled with seasoned minced meat</p>
+                        <div class="menu-card-price">KSh 120 each</div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="pastries">
+                    <div class="menu-card-image">
+                        <img src="assets/images/sample15.png" alt="Sausage Rolls" loading="lazy">
+                    </div>
+                    <div class="menu-card-content">
+                        <h3>Sausage Rolls</h3>
+                        <p>Flaky pastry wrapped around seasoned sausage</p>
+                        <div class="menu-card-price">KSh 100 each</div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="pastries">
+                    <div class="menu-card-image">
+                        <img src="assets/images/sample18.png" alt="Samosas" loading="lazy">
+                    </div>
+                    <div class="menu-card-content">
+                        <h3>Samosas</h3>
+                        <p>Crispy triangular pastries with vegetable or meat filling</p>
+                        <div class="menu-card-price">KSh 80 each</div>
+                    </div>
+                </div>
+
+                <!-- Cupcakes & Treats -->
+                <div class="menu-card" data-category="treats">
+                    <div class="menu-card-image">
+                        <img src="assets/images/sample4.png" alt="Gourmet Cupcakes" loading="lazy">
+                    </div>
+                    <div class="menu-card-content">
+                        <h3>Gourmet Cupcakes</h3>
+                        <p>Premium cupcakes with buttercream frosting - various flavors</p>
+                        <div class="menu-card-price">KSh 250 each</div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="treats">
+                    <div class="menu-card-image">
+                        <img src="assets/images/sample13.png" alt="Muffins" loading="lazy">
+                    </div>
+                    <div class="menu-card-content">
+                        <h3>Fresh Muffins</h3>
+                        <p>Blueberry, chocolate chip, banana, and bran varieties</p>
+                        <div class="menu-card-price">KSh 180 each</div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="treats">
+                    <div class="menu-card-image">
+                        <img src="assets/images/sample15.png" alt="Donuts" loading="lazy">
+                    </div>
+                    <div class="menu-card-content">
+                        <h3>Artisan Donuts</h3>
+                        <p>Glazed, filled, and specialty varieties</p>
+                        <div class="menu-card-price">KSh 120 each</div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="treats">
+                    <div class="menu-card-image">
+                        <img src="assets/images/sample16.png" alt="Cookies" loading="lazy">
+                    </div>
+                    <div class="menu-card-content">
+                        <h3>Fresh Cookies</h3>
+                        <p>Chocolate chip, oatmeal raisin, sugar cookies</p>
+                        <div class="menu-card-price">KSh 80 each</div>
+                    </div>
+                </div>
+
+                <!-- Fresh Bread & Rolls -->
+                <div class="menu-card" data-category="bread">
+                    <div class="menu-card-image">
+                        <img src="assets/images/sample18.png" alt="White Bread" loading="lazy">
+                    </div>
+                    <div class="menu-card-content">
+                        <h3>White Bread</h3>
+                        <p>Fresh baked daily, soft and fluffy</p>
+                        <div class="menu-card-price">KSh 60 per loaf</div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="bread">
+                    <div class="menu-card-image">
+                        <img src="assets/images/sample18.png" alt="Brown Bread" loading="lazy">
+                    </div>
+                    <div class="menu-card-content">
+                        <h3>Brown Bread</h3>
+                        <p>Wholesome whole wheat bread</p>
+                        <div class="menu-card-price">KSh 80 per loaf</div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="bread">
+                    <div class="menu-card-image">
+                        <img src="assets/images/sample18.png" alt="Dinner Rolls" loading="lazy">
+                    </div>
+                    <div class="menu-card-content">
+                        <h3>Dinner Rolls</h3>
+                        <p>Soft, buttery rolls perfect for meals</p>
+                        <div class="menu-card-price">KSh 30 each</div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="bread">
+                    <div class="menu-card-image">
+                        <img src="assets/images/sample18.png" alt="Baguettes" loading="lazy">
+                    </div>
+                    <div class="menu-card-content">
+                        <h3>French Baguettes</h3>
+                        <p>Crispy French-style bread</p>
+                        <div class="menu-card-price">KSh 150 each</div>
+                    </div>
+                </div>
+
+                <!-- Special Occasions -->
+                <div class="menu-card" data-category="special">
+                    <div class="menu-card-image">
+                        <img src="assets/images/sample1.png" alt="Wedding Cakes" loading="lazy">
+                    </div>
+                    <div class="menu-card-content">
+                        <h3>Wedding Cakes</h3>
+                        <p>Multi-tier custom designed cakes (price per serving)</p>
+                        <div class="menu-card-price">From KSh 400/serving</div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="special">
+                    <div class="menu-card-image">
+                        <img src="assets/images/sample2.png" alt="Birthday Cakes" loading="lazy">
+                    </div>
+                    <div class="menu-card-content">
+                        <h3>Birthday Cakes</h3>
+                        <p>Custom birthday cakes with personalized decorations</p>
+                        <div class="menu-card-price">From KSh 2,000</div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="special">
+                    <div class="menu-card-image">
+                        <img src="assets/images/sample7.png" alt="Corporate Cakes" loading="lazy">
+                    </div>
+                    <div class="menu-card-content">
+                        <h3>Corporate Cakes</h3>
+                        <p>Professional cakes for corporate events and celebrations</p>
+                        <div class="menu-card-price">From KSh 3,500</div>
+                    </div>
+                </div>
+
+                <div class="menu-card" data-category="special">
+                    <div class="menu-card-image">
+                        <img src="assets/images/sample20.png" alt="Party Platters" loading="lazy">
+                    </div>
+                    <div class="menu-card-content">
+                        <h3>Party Platters</h3>
+                        <p>Assorted pastries and treats for events (serves 20-30)</p>
+                        <div class="menu-card-price">From KSh 4,000</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="menu-note">
+                <p><i class="fas fa-info-circle"></i> All prices are subject to customization requirements. Contact us for detailed quotes on custom orders.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Order?</h2>
+            <p>Contact us today to discuss your requirements and get a personalized quote.</p>
+            <div class="cta-buttons">
+                <a href="https://wa.me/254704939844" class="btn btn-primary">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Order
+                </a>
+                <a href="tel:0704939844" class="btn btn-secondary">
+                    <i class="fas fa-phone"></i> Call Patricia
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sweet n' Puffy</h3>
+                    <p>Creating sweet memories, one cake at a time. Your trusted partner for all celebrations and special moments.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://wa.me/254704939844" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html#about">About</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="index.html#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="menu.html">Fresh Daily Baking</a></li>
+                        <li><a href="services.html">Custom Cake Design</a></li>
+                        <li><a href="services.html">Wedding Cakes</a></li>
+                        <li><a href="services.html">Event Catering</a></li>
+                        <li><a href="services.html">Home Delivery</a></li>
+                        <li><a href="index.html#contact">Rush Orders</a></li>
+                        <li><a href="services.html">Corporate Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>0704 939 844</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <span><a href="https://wa.me/254704939844" style="color: inherit; text-decoration: none;">WhatsApp Orders</a></span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>123 Sweet Street, Bakery District</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Sweet n' Puffy. All rights reserved. | Designed with ❤️ for Patricia's Bakery</p>
+                <p class="developer-credit">Website developed by <strong>Alphonce Mukaisi</strong> | <a href="tel:0727497815">0727 497 815</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

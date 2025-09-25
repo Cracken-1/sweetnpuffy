@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet n' Puffy - Premium Bakery & Confectionery</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="stylesheet" href="css/styles.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800&family=Dancing+Script:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Sweet n' Puffy</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="gallery.html" class="nav-link">Gallery</a></li>
+                <li><a href="menu.html" class="nav-link">Menu & Prices</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="#location" class="nav-link">Location</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Sweet n' Puffy</h1>
+            <p class="hero-subtitle">Where Every Bite is Pure Delight</p>
+            <p class="hero-description">Crafting premium cakes, pastries, and confections with love and the finest
+                ingredients</p>
+            <div class="hero-buttons">
+                <a href="gallery.html" class="btn btn-primary">View Our Creations</a>
+                <a href="#contact" class="btn btn-secondary">Order Now</a>
+            </div>
+        </div>
+        <div class="hero-video">
+            <video autoplay muted loop>
+                <source src="assets/videos/video1.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>About Sweet n' Puffy</h2>
+                <p>Your trusted partner in creating sweet memories</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Our Story</h3>
+                    <p>At Sweet n' Puffy, we believe that every celebration deserves the perfect cake. Founded with a
+                        passion for baking excellence, we specialize in creating custom cakes, delicious pastries, and
+                        premium confections that bring joy to your special moments.</p>
+
+                    <h3>Our Mission</h3>
+                    <p>To provide our community with the highest quality baked goods, exceptional customer service, and
+                        unforgettable taste experiences that make every occasion truly special.</p>
+
+                    <div class="features">
+                        <div class="feature">
+                            <i class="fas fa-birthday-cake"></i>
+                            <h4>Custom Cakes</h4>
+                            <p>Personalized designs for every occasion</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-leaf"></i>
+                            <h4>Fresh Ingredients</h4>
+                            <p>Only the finest, freshest ingredients</p>
+                        </div>
+                        <div class="feature">
+                            <i class="fas fa-heart"></i>
+                            <h4>Made with Love</h4>
+                            <p>Every item crafted with care and passion</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Preview Section -->
+    <section id="gallery" class="gallery-preview">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Sweet Creations</h2>
+                <p>A taste of our amazing work</p>
+            </div>
+            <div class="preview-grid">
+                <div class="preview-item">
+                    <img src="assets/images/sample1.png" alt="Wedding Cake" loading="lazy">
+                    <div class="preview-overlay">
+                        <h3>Wedding Cakes</h3>
+                        <p>Elegant multi-tier designs</p>
+                    </div>
+                </div>
+                <div class="preview-item">
+                    <img src="assets/images/sample2.png" alt="Birthday Cake" loading="lazy">
+                    <div class="preview-overlay">
+                        <h3>Birthday Cakes</h3>
+                        <p>Custom celebration cakes</p>
+                    </div>
+                </div>
+                <div class="preview-item">
+                    <img src="assets/images/sample3.png" alt="Pastries" loading="lazy">
+                    <div class="preview-overlay">
+                        <h3>Fresh Pastries</h3>
+                        <p>Daily baked delights</p>
+                    </div>
+                </div>
+                <div class="preview-item">
+                    <img src="assets/images/sample4.png" alt="Cupcakes" loading="lazy">
+                    <div class="preview-overlay">
+                        <h3>Gourmet Cupcakes</h3>
+                        <p>Perfect individual treats</p>
+                    </div>
+                </div>
+                <div class="preview-item">
+                    <img src="assets/images/sample5.png" alt="Anniversary Cake" loading="lazy">
+                    <div class="preview-overlay">
+                        <h3>Special Occasions</h3>
+                        <p>Memorable celebration cakes</p>
+                    </div>
+                </div>
+                <div class="preview-item">
+                    <img src="assets/images/sample6.png" alt="Danish Pastries" loading="lazy">
+                    <div class="preview-overlay">
+                        <h3>Artisan Pastries</h3>
+                        <p>European-style delicacies</p>
+                    </div>
+                </div>
+            </div>
+            <div class="preview-cta">
+                <a href="gallery.html" class="btn btn-primary">
+                    <i class="fas fa-images"></i> View Full Gallery
+                </a>
+                <p>See all our amazing creations and browse by category</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Preview Section -->
+    <section id="menu-preview" class="menu-preview">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Menu Highlights</h2>
+                <p>Popular items and pricing</p>
+            </div>
+            <div class="menu-highlights">
+                <div class="menu-highlight">
+                    <div class="highlight-icon">
+                        <i class="fas fa-birthday-cake"></i>
+                    </div>
+                    <h3>Signature Cakes</h3>
+                    <div class="highlight-items">
+                        <div class="highlight-item">
+                            <span>Chocolate Fudge Cake</span>
+                            <span>KSh 2,500</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span>Red Velvet Cake</span>
+                            <span>KSh 2,800</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span>Black Forest Cake</span>
+                            <span>KSh 3,200</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-highlight">
+                    <div class="highlight-icon">
+                        <i class="fas fa-cookie-bite"></i>
+                    </div>
+                    <h3>Fresh Pastries</h3>
+                    <div class="highlight-items">
+                        <div class="highlight-item">
+                            <span>Croissants</span>
+                            <span>KSh 150 each</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span>Danish Pastries</span>
+                            <span>KSh 200 each</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span>Meat Pies</span>
+                            <span>KSh 120 each</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="menu-highlight">
+                    <div class="highlight-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Special Orders</h3>
+                    <div class="highlight-items">
+                        <div class="highlight-item">
+                            <span>Wedding Cakes</span>
+                            <span>From KSh 400/serving</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span>Corporate Events</span>
+                            <span>From KSh 3,500</span>
+                        </div>
+                        <div class="highlight-item">
+                            <span>Party Platters</span>
+                            <span>From KSh 4,000</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="preview-cta">
+                <a href="menu.html" class="btn btn-primary">
+                    <i class="fas fa-utensils"></i> View Full Menu
+                </a>
+                <p>See all our delicious offerings with complete pricing</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services">
+        <div class="container">
+            <div class="section-header">
+                <h2>Our Services</h2>
+                <p>Comprehensive bakery solutions for all your needs</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Custom Design</h3>
+                    <p>Work with our talented bakers to create unique, personalized cakes that match your vision
+                        perfectly.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-truck"></i>
+                    </div>
+                    <h3>Delivery Service</h3>
+                    <p>Safe and timely delivery of your orders to your doorstep or event venue within our service area.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3>Event Catering</h3>
+                    <p>Complete dessert catering for weddings, corporate events, parties, and special celebrations.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Rush Orders</h3>
+                    <p>Need something last minute? We offer rush order services for urgent celebrations (additional fees
+                        apply).</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Dietary Options</h3>
+                    <p>Sugar-free, gluten-free, and vegan options available to accommodate all dietary requirements.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Consultation</h3>
+                    <p>Free consultation sessions to discuss your requirements and help you choose the perfect options.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section -->
+    <section id="location" class="location">
+        <div class="container">
+            <div class="section-header">
+                <h2>Find Us</h2>
+                <p>Visit our bakery or let us come to you</p>
+            </div>
+            <div class="location-content">
+                <div class="location-info">
+                    <div class="info-card">
+                        <h3><i class="fas fa-map-marker-alt"></i> Our Location</h3>
+                        <p>123 Sweet Street<br>
+                            Bakery District<br>
+                            City, State 12345</p>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fas fa-clock"></i> Opening Hours</h3>
+                        <div class="hours">
+                            <div class="hour-row">
+                                <span>Monday - Friday</span>
+                                <span>7:00 AM - 7:00 PM</span>
+                            </div>
+                            <div class="hour-row">
+                                <span>Saturday</span>
+                                <span>8:00 AM - 8:00 PM</span>
+                            </div>
+                            <div class="hour-row">
+                                <span>Sunday</span>
+                                <span>9:00 AM - 6:00 PM</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <h3><i class="fas fa-car"></i> Parking & Access</h3>
+                        <p>Free parking available<br>
+                            Wheelchair accessible<br>
+                            Public transport nearby</p>
+                    </div>
+                </div>
+                <div class="map-container">
+                    <div id="map"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2>Get In Touch</h2>
+                <p>Ready to order or have questions? We'd love to hear from you!</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <h3>Call Us</h3>
+                        <p><a href="tel:0704939844">0704 939 844</a></p>
+                        <small>Patricia - Owner & Head Baker</small>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fab fa-whatsapp"></i>
+                        </div>
+                        <h3>WhatsApp Orders</h3>
+                        <p><a href="https://wa.me/254704939844">Send Message</a></p>
+                        <small>Quick responses during business hours</small>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3>Email Support</h3>
+                        <p><a href="mailto:info@sweetnpuffy.com">info@sweetnpuffy.com</a></p>
+                        <small>General inquiries and support</small>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="orderForm">
+                        <h3>Place Your Order</h3>
+                        <div class="form-group">
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="phone" name="phone" placeholder="Phone Number" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" id="email" name="email" placeholder="Email Address" required>
+                        </div>
+                        <div class="form-group">
+                            <select id="orderType" name="orderType" required>
+                                <option value="">Select Order Type</option>
+                                <option value="wedding-cake">Wedding Cake</option>
+                                <option value="birthday-cake">Birthday Cake</option>
+                                <option value="anniversary-cake">Anniversary Cake</option>
+                                <option value="cupcakes">Cupcakes</option>
+                                <option value="pastries">Pastries</option>
+                                <option value="custom">Custom Order</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="date" id="eventDate" name="eventDate" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea id="message" name="message"
+                                placeholder="Describe your requirements, flavors, design preferences, number of servings, etc."
+                                rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Send Order Request</button>
+                        <p class="form-note">
+                            <i class="fas fa-info-circle"></i>
+                            Your order details will be sent directly to Patricia via WhatsApp
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sweet n' Puffy</h3>
+                    <p>Creating sweet memories, one cake at a time. Your trusted partner for all celebrations and
+                        special moments.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="https://wa.me/254704939844" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
+                        <li><a href="menu.html">Menu</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="menu.html">Fresh Daily Baking</a></li>
+                        <li><a href="services.html">Custom Cake Design</a></li>
+                        <li><a href="services.html">Wedding Cakes</a></li>
+                        <li><a href="services.html">Event Catering</a></li>
+                        <li><a href="services.html">Home Delivery</a></li>
+                        <li><a href="#contact">Rush Orders</a></li>
+                        <li><a href="services.html">Corporate Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>0704 939 844</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <span><a href="https://wa.me/254704939844"
+                                style="color: inherit; text-decoration: none;">WhatsApp Orders</a></span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>123 Sweet Street, Bakery District</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Sweet n' Puffy. All rights reserved. | Designed with ❤️ for Patricia's Bakery</p>
+                <p class="developer-credit">Website developed by <strong>Alphonce Mukaisi</strong> | <a
+                        href="tel:0727497815">0727 497 815</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Chat Widget -->
+    <div class="whatsapp-widget" id="whatsappWidget">
+        <div class="chat-button" onclick="toggleChat()">
+            <i class="fab fa-whatsapp"></i>
+            <span class="chat-notification">1</span>
+        </div>
+        <div class="chat-popup" id="chatPopup">
+            <div class="chat-header">
+                <div class="chat-avatar">
+                    <i class="fas fa-user-circle"></i>
+                </div>
+                <div class="chat-info">
+                    <h4>Patricia</h4>
+                    <span class="online-status">Online now</span>
+                </div>
+                <button class="chat-close" onclick="toggleChat()">×</button>
+            </div>
+            <div class="chat-body">
+                <div class="chat-message received">
+                    <p>Hi! 👋 Welcome to Sweet n' Puffy!</p>
+                    <p>How can I help you with your sweet needs today?</p>
+                    <span class="message-time">Just now</span>
+                </div>
+                <div class="quick-replies">
+                    <button onclick="sendQuickReply('I want to order a cake')">🎂 Order a Cake</button>
+                    <button onclick="sendQuickReply('Check pricing')">💰 Check Pricing</button>
+                    <button onclick="sendQuickReply('Custom design')">🎨 Custom Design</button>
+                </div>
+            </div>
+            <div class="chat-footer">
+                <a href="https://wa.me/254704939844?text=Hi! I'm interested in your cakes" class="chat-whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i>
+                    Continue on WhatsApp
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scroll Progress Bar -->
+    <div class="scroll-progress">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="js/script.js"></script>
+</body>
+
+</html>
