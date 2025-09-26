@@ -118,47 +118,6 @@ function initNavigation() {
     });
 }
 
-// Modern Gallery functionality
-function initGalleryFilters() {
-    const tabBtns = document.querySelectorAll('.tab-btn');
-    const galleryCards = document.querySelectorAll('.gallery-card');
-
-    tabBtns.forEach(btn => {
-        btn.addEventListener('click', function() {
-            // Remove active class from all buttons
-            tabBtns.forEach(b => b.classList.remove('active'));
-            // Add active class to clicked button
-            this.classList.add('active');
-
-            const filterValue = this.getAttribute('data-category');
-
-            galleryCards.forEach(card => {
-                if (filterValue === 'all') {
-                    card.style.display = 'block';
-                    setTimeout(() => {
-                        card.style.opacity = '1';
-                        card.style.transform = 'scale(1)';
-                    }, 100);
-                } else {
-                    if (card.getAttribute('data-category') === filterValue) {
-                        card.style.display = 'block';
-                        setTimeout(() => {
-                            card.style.opacity = '1';
-                            card.style.transform = 'scale(1)';
-                        }, 100);
-                    } else {
-                        card.style.opacity = '0';
-                        card.style.transform = 'scale(0.8)';
-                        setTimeout(() => {
-                            card.style.display = 'none';
-                        }, 300);
-                    }
-                }
-            });
-        });
-    });
-}
-
 // Lightbox functionality
 function openLightbox(imageSrc, title, description) {
     const lightbox = document.getElementById('lightbox');
@@ -1057,8 +1016,7 @@ document.addEventListener('error', function(e) {
         e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIG5vdCBhdmFpbGFibGU8L3RleHQ+PC9zdmc+';
         e.target.alt = 'Image not available';
     }
-}, true);// Enha
-nced Google Analytics Tracking
+}, true);// Enhanced Google Analytics Tracking
 function trackEvent(eventName, category, label, value) {
     if (typeof gtag !== 'undefined') {
         gtag('event', eventName, {
@@ -1132,7 +1090,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });// 
-Make functions globally available
+//Make functions globally available
 window.sendQuickReply = sendQuickReply;
 window.openOrderModal = openOrderModal;
 window.openChatModal = openChatModal;
