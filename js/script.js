@@ -222,8 +222,8 @@ function initMenuFilters() {
 
 // Map initialization
 function initMap() {
-    // Initialize the map
-    const map = L.map('map').setView([-1.2921, 36.8219], 13); // Nairobi coordinates as example
+    // Initialize the map - Juja coordinates
+    const map = L.map('map').setView([-1.1048, 37.0067], 14); // Juja coordinates
 
     // Add tile layer
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -231,13 +231,13 @@ function initMap() {
     }).addTo(map);
 
     // Add marker for bakery location
-    const bakeryMarker = L.marker([-1.2921, 36.8219]).addTo(map);
+    const bakeryMarker = L.marker([-1.1048, 37.0067]).addTo(map);
     
     // Custom popup content
     bakeryMarker.bindPopup(`
         <div style="text-align: center; padding: 10px;">
             <h3 style="color: #ed1c24; margin-bottom: 10px;">Sweet n' Puffy</h3>
-            <p style="margin-bottom: 5px;"><strong>Address:</strong><br>123 Sweet Street<br>Bakery District</p>
+            <p style="margin-bottom: 5px;"><strong>Address:</strong><br>Kenyatta Road<br>Juja, Kiambu County</p>
             <p style="margin-bottom: 5px;"><strong>Phone:</strong><br><a href="tel:0704939844" style="color: #ed1c24;">0704 939 844</a></p>
             <p><strong>Hours:</strong><br>Mon-Fri: 7AM-7PM<br>Sat: 8AM-8PM<br>Sun: 9AM-6PM</p>
         </div>
@@ -247,8 +247,8 @@ function initMap() {
     map.on('click', function(e) {
         const userLat = e.latlng.lat;
         const userLng = e.latlng.lng;
-        const bakeryLat = -1.2921;
-        const bakeryLng = 36.8219;
+        const bakeryLat = -1.1048;
+        const bakeryLng = 37.0067;
         
         // Open Google Maps with directions
         const directionsUrl = `https://www.google.com/maps/dir/${userLat},${userLng}/${bakeryLat},${bakeryLng}`;
