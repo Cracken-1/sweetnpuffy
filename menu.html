@@ -71,7 +71,7 @@
                         <h3>Chocolate Fudge Cake</h3>
                         <p>Rich chocolate layers with premium fudge frosting and decorative chocolate shavings</p>
                         <div class="menu-card-price">KSh 2,500</div>
-                        <a href="#" onclick="window.open('https://wa.me/254704939844?text=' + generateOrderMessage('Chocolate Fudge Cake', 'KSh 2,500'), '_blank'); return false;" class="order-btn">
+                        <a href="#" onclick="openOrderModal('Chocolate Fudge Cake', 'KSh 2,500'); return false;" class="order-btn">
                             <i class="fab fa-whatsapp"></i> Order Now
                         </a>
                     </div>
@@ -86,7 +86,7 @@
                         <h3>Red Velvet Cake</h3>
                         <p>Classic red velvet with smooth cream cheese frosting and elegant presentation</p>
                         <div class="menu-card-price">KSh 2,800</div>
-                        <a href="#" onclick="window.open('https://wa.me/254704939844?text=' + generateOrderMessage('Red Velvet Cake', 'KSh 2,800'), '_blank'); return false;" class="order-btn">
+                        <a href="#" onclick="openOrderModal('Red Velvet Cake', 'KSh 2,800'); return false;" class="order-btn">
                             <i class="fab fa-whatsapp"></i> Order Now
                         </a>
                     </div>
@@ -147,7 +147,7 @@
                         <h3>Fresh Croissants</h3>
                         <p>Buttery, flaky pastries baked fresh daily - plain, chocolate, or almond varieties</p>
                         <div class="menu-card-price">KSh 150 each</div>
-                        <a href="#" onclick="window.open('https://wa.me/254704939844?text=' + generateOrderMessage('Fresh Croissants', 'KSh 150 each'), '_blank'); return false;" class="order-btn">
+                        <a href="#" onclick="openOrderModal('Fresh Croissants', 'KSh 150 each'); return false;" class="order-btn">
                             <i class="fab fa-whatsapp"></i> Order Now
                         </a>
                     </div>
@@ -223,7 +223,7 @@
                         <h3>Gourmet Cupcakes</h3>
                         <p>Premium cupcakes with artistic buttercream frosting in various flavors</p>
                         <div class="menu-card-price">KSh 250 each</div>
-                        <a href="#" onclick="window.open('https://wa.me/254704939844?text=' + generateOrderMessage('Gourmet Cupcakes', 'KSh 250 each'), '_blank'); return false;" class="order-btn">
+                        <a href="#" onclick="openOrderModal('Gourmet Cupcakes', 'KSh 250 each'); return false;" class="order-btn">
                             <i class="fab fa-whatsapp"></i> Order Now
                         </a>
                     </div>
@@ -477,6 +477,64 @@
             </div>
         </div>
     </footer>
+
+    <!-- Order Form Modal -->
+    <div id="orderModal" class="order-modal">
+        <div class="order-modal-content">
+            <div class="order-modal-header">
+                <h3 id="modalTitle">Order Details</h3>
+                <button class="order-modal-close" onclick="closeOrderModal()">&times;</button>
+            </div>
+            <div class="order-modal-body">
+                <form id="orderForm">
+                    <div class="form-group">
+                        <label for="customerName">Your Name *</label>
+                        <input type="text" id="customerName" name="customerName" required>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="customerPhone">Phone Number *</label>
+                            <input type="tel" id="customerPhone" name="customerPhone" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="orderQuantity">Quantity *</label>
+                            <input type="number" id="orderQuantity" name="orderQuantity" min="1" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="eventDate">When do you need it? *</label>
+                        <input type="date" id="eventDate" name="eventDate" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="deliveryOption">Pickup or Delivery? *</label>
+                        <select id="deliveryOption" name="deliveryOption" required>
+                            <option value="">Select option</option>
+                            <option value="pickup">Pickup from Kenyatta Road, Juja</option>
+                            <option value="delivery">Delivery to my location</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group" id="deliveryLocationGroup" style="display: none;">
+                        <label for="deliveryLocation">Delivery Location</label>
+                        <input type="text" id="deliveryLocation" name="deliveryLocation" placeholder="Enter your address">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="specialRequests">Special Requirements (Optional)</label>
+                        <textarea id="specialRequests" name="specialRequests" placeholder="Any customizations, dietary restrictions, or special requests..."></textarea>
+                    </div>
+                    
+                    <button type="submit" class="order-submit-btn">
+                        <i class="fab fa-whatsapp"></i>
+                        Send Order via WhatsApp
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <script src="js/script.js"></script>
 </body>

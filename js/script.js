@@ -266,58 +266,122 @@ Thank you for your time! 🙏`;
     window.open(whatsappUrl, '_blank');
 }
 
-// Function to generate detailed order messages
-function generateOrderMessage(productName, price, category = 'general') {
-    let emoji = '🍰';
-    let categoryText = 'item';
+// Global variables for order modal
+let currentProduct = '';
+let currentPrice = '';
+
+// Function to open order modal
+function openOrderModal(productName, price) {
+    currentProduct = productName;
+    currentPrice = price;
     
-    // Set emoji and category based on product type
-    if (productName.toLowerCase().includes('cake')) {
-        emoji = '🎂';
-        categoryText = 'cake';
-    } else if (productName.toLowerCase().includes('cupcake')) {
-        emoji = '🧁';
-        categoryText = 'cupcakes';
-    } else if (productName.toLowerCase().includes('croissant') || productName.toLowerCase().includes('pastry') || productName.toLowerCase().includes('danish')) {
-        emoji = '🥐';
-        categoryText = 'pastries';
-    } else if (productName.toLowerCase().includes('bread') || productName.toLowerCase().includes('roll') || productName.toLowerCase().includes('baguette')) {
-        emoji = '🍞';
-        categoryText = 'bread';
-    } else if (productName.toLowerCase().includes('muffin')) {
-        emoji = '🧁';
-        categoryText = 'muffins';
-    } else if (productName.toLowerCase().includes('cookie')) {
-        emoji = '🍪';
-        categoryText = 'cookies';
-    } else if (productName.toLowerCase().includes('donut') || productName.toLowerCase().includes('doughnut')) {
-        emoji = '🍩';
-        categoryText = 'donuts';
+    document.getElementById('modalTitle').textContent = `Order ${productName}`;
+    document.getElementById('orderModal').style.display = 'block';
+    
+    // Set minimum date to today
+    const today = new Date().toISOString().split('T')[0];
+    document.getElementById('eventDate').setAttribute('min', today);
+}
+
+// Function to close order modal
+function closeOrderModal() {
+    document.getElementById('orderModal').style.display = 'none';
+    document.getElementById('orderForm').reset();
+    document.getElementById('deliveryLocationGroup').style.display = 'none';
+}
+
+// Handle delivery option change
+document.addEventListener('DOMContentLoaded', function() {
+    const deliveryOption = document.getElementById('deliveryOption');
+    const deliveryLocationGroup = document.getElementById('deliveryLocationGroup');
+    
+    if (deliveryOption) {
+        deliveryOption.addEventListener('change', function() {
+            if (this.value === 'delivery') {
+                deliveryLocationGroup.style.display = 'block';
+                document.getElementById('deliveryLocation').required = true;
+            } else {
+                deliveryLocationGroup.style.display = 'none';
+                document.getElementById('deliveryLocation').required = false;
+            }
+        });
     }
     
-    const message = `${emoji} Hello Sweet n' Puffy!
+    // Handle form submission
+    const orderForm = document.getElementById('orderForm');
+    if (orderForm) {
+        orderForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            submitOrder();
+        });
+    }
+    
+    // Close modal when clicking outside
+    window.addEventListener('click', function(e) {
+        const modal = document.getElementById('orderModal');
+        if (e.target === modal) {
+            closeOrderModal();
+        }
+    });
+});
 
-I would like to place an order for your ${productName}.
+// Function to submit order and generate WhatsApp message
+function submitOrder() {
+    const formData = new FormData(document.getElementById('orderForm'));
+    const data = Object.fromEntries(formData);
+    
+    // Get emoji based on product type
+    let emoji = '🍰';
+    if (currentProduct.toLowerCase().includes('cake')) emoji = '🎂';
+    else if (currentProduct.toLowerCase().includes('cupcake')) emoji = '🧁';
+    else if (currentProduct.toLowerCase().includes('croissant') || currentProduct.toLowerCase().includes('pastry')) emoji = '🥐';
+    else if (currentProduct.toLowerCase().includes('bread') || currentProduct.toLowerCase().includes('roll')) emoji = '🍞';
+    else if (currentProduct.toLowerCase().includes('cookie')) emoji = '🍪';
+    else if (currentProduct.toLowerCase().includes('donut')) emoji = '🍩';
+    
+    // Create concise WhatsApp message
+    let message = `${emoji} *ORDER REQUEST*\n\n`;
+    message += `*Product:* ${currentProduct}\n`;
+    message += `*Price:* ${currentPrice}\n`;
+    message += `*Quantity:* ${data.orderQuantity}\n`;
+    message += `*Customer:* ${data.customerName}\n`;
+    message += `*Phone:* ${data.customerPhone}\n`;
+    message += `*Needed by:* ${formatDate(data.eventDate)}\n`;
+    message += `*Service:* ${data.deliveryOption === 'pickup' ? 'Pickup from Juja' : 'Delivery'}`;
+    
+    if (data.deliveryOption === 'delivery' && data.deliveryLocation) {
+        message += `\n*Location:* ${data.deliveryLocation}`;
+    }
+    
+    if (data.specialRequests) {
+        message += `\n*Special requests:* ${data.specialRequests}`;
+    }
+    
+    message += `\n\nPlease confirm availability and total cost. Thank you! 🙏`;
+    
+    // Open WhatsApp
+    const whatsappUrl = `https://wa.me/254704939844?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+    
+    // Close modal
+    closeOrderModal();
+}
 
-📋 ORDER DETAILS:
-• Product: ${productName}
-• Listed Price: ${price}
-• Quantity: [Please specify how many you need]
-• Special Requirements: [Any customizations or dietary needs]
+// Function to format date nicely
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    return date.toLocaleDateString('en-US', { 
+        weekday: 'long', 
+        year: 'numeric', 
+        month: 'long', 
+        day: 'numeric' 
+    });
+}
 
-📅 DELIVERY DETAILS:
-• Needed Date: [When do you need this order]
-• Pickup/Delivery: [Pickup from Kenyatta Road, Juja OR Delivery to my location]
-• Event/Occasion: [What is this ${categoryText} for?]
-
-📞 MY CONTACT INFO:
-• Name: [Your full name]
-• Phone: [Your contact number]
-• Location: [Your area if delivery needed]
-
-Could you please confirm availability and total cost including any delivery charges? Thank you! 🙏`;
-
-    return encodeURIComponent(message);
+// Updated function for order buttons (now opens modal instead of direct WhatsApp)
+function generateOrderMessage(productName, price) {
+    openOrderModal(productName, price);
+    return false; // Prevent default link behavior
 }
 
 
