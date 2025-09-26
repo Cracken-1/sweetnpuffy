@@ -971,4 +971,78 @@ document.addEventListener('error', function(e) {
         e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZGRkIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxNCIgZmlsbD0iIzk5OSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPkltYWdlIG5vdCBhdmFpbGFibGU8L3RleHQ+PC9zdmc+';
         e.target.alt = 'Image not available';
     }
-}, true);
+}, true);// Enha
+nced Google Analytics Tracking
+function trackEvent(eventName, category, label, value) {
+    if (typeof gtag !== 'undefined') {
+        gtag('event', eventName, {
+            'event_category': category,
+            'event_label': label,
+            'value': value
+        });
+    }
+}
+
+// Track WhatsApp clicks
+function trackWhatsAppClick(productName, source) {
+    trackEvent('whatsapp_click', 'engagement', `${source}: ${productName}`, 1);
+}
+
+// Track modal opens
+function trackModalOpen(modalType) {
+    trackEvent('modal_open', 'engagement', modalType, 1);
+}
+
+// Track form submissions
+function trackFormSubmission(formType) {
+    trackEvent('form_submit', 'conversion', formType, 1);
+}
+
+// Enhanced order modal function with tracking
+function openOrderModalWithTracking(productName, price) {
+    trackModalOpen('product_order');
+    trackEvent('product_interest', 'engagement', productName, 1);
+    openOrderModal(productName, price);
+}
+
+// Enhanced chat modal function with tracking
+function openChatModalWithTracking(type) {
+    trackModalOpen(`chat_${type}`);
+    openChatModal(type);
+}
+
+// Update existing functions to include tracking
+const originalSubmitOrder = submitOrder;
+submitOrder = function() {
+    trackFormSubmission('product_order');
+    trackWhatsAppClick(currentProduct, 'order_form');
+    originalSubmitOrder();
+};
+
+const originalSubmitChatForm = submitChatForm;
+submitChatForm = function(type) {
+    trackFormSubmission(`chat_${type}`);
+    trackWhatsAppClick(type, 'chat_form');
+    originalSubmitChatForm(type);
+};
+
+// Track page views on load
+document.addEventListener('DOMContentLoaded', function() {
+    // Track page view
+    if (typeof gtag !== 'undefined') {
+        gtag('config', 'G-9JJPBKHCL0', {
+            page_title: document.title,
+            page_location: window.location.href
+        });
+    }
+    
+    // Track scroll depth
+    let maxScroll = 0;
+    window.addEventListener('scroll', function() {
+        const scrollPercent = Math.round((window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100);
+        if (scrollPercent > maxScroll && scrollPercent % 25 === 0) {
+            maxScroll = scrollPercent;
+            trackEvent('scroll_depth', 'engagement', `${scrollPercent}%`, scrollPercent);
+        }
+    });
+});

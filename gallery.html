@@ -18,11 +18,13 @@
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'G-9JJPBKHCL0');
+        gtag('config', 'G-9JJPBKHCL0', {
+            send_page_view: true
+        });
+        console.log('Google Analytics loaded on Gallery page');
     </script>
     
-    <!-- Vercel Analytics -->
-    <script defer src="/_vercel/insights/script.js"></script>
+
 </head>
 
 <body>

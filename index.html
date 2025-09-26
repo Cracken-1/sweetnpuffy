@@ -19,14 +19,23 @@
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-        gtag('config', 'G-9JJPBKHCL0');
+        gtag('config', 'G-9JJPBKHCL0', {
+            debug_mode: true,
+            send_page_view: true
+        });
+        
+        // Verify GA is loaded
+        console.log('Google Analytics initialized with ID: G-9JJPBKHCL0');
+        
+        // Send a test event
+        gtag('event', 'page_view', {
+            page_title: 'Sweet n Puffy - Home',
+            page_location: window.location.href,
+            custom_parameter: 'bakery_website'
+        });
     </script>
 
-    <!-- Vercel Analytics -->
-    <script>
-        window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-    </script>
-    <script defer src="/_vercel/insights/script.js"></script>
+
 </head>
 
 <body>
