@@ -20,32 +20,33 @@
     </div>
 
     <!-- Navigation -->
-    <nav class="navbar"></nav>
-    <div class="nav-container">
-        <div class="nav-logo">
-            <h2><a href="index.html" style="text-decoration: none; color: inherit;">Sweet n' Puffy</a></h2>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2><a href="index.html" style="text-decoration: none; color: inherit;">Sweet n' Puffy</a></h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Home</a></li>
+                <li><a href="index.html#about" class="nav-link">About</a></li>
+                <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
+                <li><a href="menu.html" class="nav-link">Menu & Prices</a></li>
+                <li><a href="showcase.html" class="nav-link">Bakery Showcase</a></li>
+                <li><a href="services.html" class="nav-link">Services</a></li>
+                <li><a href="index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
         </div>
-        <ul class="nav-menu">
-            <li><a href="index.html" class="nav-link">Home</a></li>
-            <li><a href="index.html#about" class="nav-link">About</a></li>
-            <li><a href="gallery.html" class="nav-link active">Gallery</a></li>
-            <li><a href="menu.html" class="nav-link">Menu & Prices</a></li>
-            <li><a href="services.html" class="nav-link">Services</a></li>
-            <li><a href="index.html#contact" class="nav-link">Contact</a></li>
-        </ul>
-        <div class="hamburger">
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
-    </div>
     </nav>
 
     <!-- Gallery Hero -->
-    <section class="page-hero">
+    <section class="page-hero" style="padding: 120px 0 80px; background: linear-gradient(135deg, var(--cream) 0%, var(--soft-pink) 100%); text-align: center;">
         <div class="container">
-            <h1>Our Sweet Gallery</h1>
-            <p>Discover our amazing collection of handcrafted cakes, pastries, and confections</p>
+            <h1 style="font-family: var(--font-script); font-size: 3.5rem; color: var(--primary-color); margin-bottom: 1rem;">Our Sweet Gallery</h1>
+            <p style="font-size: 1.2rem; color: var(--medium-gray); max-width: 600px; margin: 0 auto;">Discover our amazing collection of handcrafted cakes, pastries, and confections</p>
         </div>
     </section>
 
@@ -81,12 +82,12 @@
                 <!-- Row 1 -->
                 <div class="gallery-card large" data-category="cakes">
                     <div class="card-image">
-                        <img src="assets/images/sample1.png" alt="Elegant Wedding Cake" loading="lazy">
+                        <img src="assets/images/sample1.png" alt="Multi-Tier Wedding Cake" loading="lazy">
                         <div class="image-overlay">
                             <div class="overlay-content">
                                 <span class="category-tag">Wedding Cakes</span>
-                                <h3>Elegant Wedding Cake</h3>
-                                <p>Three-tier masterpiece with buttercream roses and gold accents</p>
+                                <h3>Multi-Tier Wedding Cake</h3>
+                                <p>Elegant white wedding cake with floral decorations and multiple tiers</p>
                                 <div class="card-actions">
                                     <button class="action-btn"
                                         onclick="openLightbox('assets/images/sample1.png', 'Elegant Wedding Cake', 'Three-tier masterpiece with buttercream roses and gold accents')">
@@ -104,12 +105,12 @@
 
                 <div class="gallery-card medium" data-category="pastries">
                     <div class="card-image">
-                        <img src="assets/images/sample3.png" alt="Fresh Croissants" loading="lazy">
+                        <img src="assets/images/sample3.png" alt="Golden Butter Croissants" loading="lazy">
                         <div class="image-overlay">
                             <div class="overlay-content">
                                 <span class="category-tag">Pastries</span>
-                                <h3>Fresh Croissants</h3>
-                                <p>Buttery, flaky pastries baked fresh daily</p>
+                                <h3>Golden Butter Croissants</h3>
+                                <p>Perfectly golden, buttery croissants with flaky layers</p>
                                 <div class="card-actions">
                                     <button class="action-btn"
                                         onclick="openLightbox('assets/images/sample3.png', 'Fresh Croissants', 'Buttery, flaky pastries baked fresh daily')">
@@ -127,12 +128,12 @@
 
                 <div class="gallery-card small" data-category="cupcakes">
                     <div class="card-image">
-                        <img src="assets/images/sample4.png" alt="Gourmet Cupcakes" loading="lazy">
+                        <img src="assets/images/sample4.png" alt="Decorated Cupcake Collection" loading="lazy">
                         <div class="image-overlay">
                             <div class="overlay-content">
                                 <span class="category-tag">Cupcakes</span>
-                                <h3>Gourmet Cupcakes</h3>
-                                <p>Premium cupcakes with artistic decorations</p>
+                                <h3>Decorated Cupcake Collection</h3>
+                                <p>Beautifully decorated cupcakes with colorful frosting designs</p>
                                 <div class="card-actions">
                                     <button class="action-btn"
                                         onclick="openLightbox('assets/images/sample4.png', 'Gourmet Cupcakes', 'Premium cupcakes with artistic decorations')">
@@ -151,12 +152,12 @@
                 <!-- Row 2 -->
                 <div class="gallery-card medium" data-category="cakes">
                     <div class="card-image">
-                        <img src="assets/images/sample2.png" alt="Birthday Celebration" loading="lazy">
+                        <img src="assets/images/sample2.png" alt="Colorful Birthday Cake" loading="lazy">
                         <div class="image-overlay">
                             <div class="overlay-content">
                                 <span class="category-tag">Birthday Cakes</span>
-                                <h3>Birthday Celebration</h3>
-                                <p>Custom birthday cakes with personalized themes</p>
+                                <h3>Colorful Birthday Cake</h3>
+                                <p>Vibrant birthday cake with rainbow decorations and candles</p>
                                 <div class="card-actions">
                                     <button class="action-btn"
                                         onclick="openLightbox('assets/images/sample2.png', 'Birthday Celebration', 'Custom birthday cakes with personalized themes')">
@@ -174,12 +175,12 @@
 
                 <div class="gallery-card large" data-category="special">
                     <div class="card-image">
-                        <img src="assets/images/sample7.png" alt="Corporate Events" loading="lazy">
+                        <img src="assets/images/sample7.png" alt="Professional Celebration Cake" loading="lazy">
                         <div class="image-overlay">
                             <div class="overlay-content">
                                 <span class="category-tag">Corporate</span>
-                                <h3>Corporate Events</h3>
-                                <p>Professional cakes for business celebrations and milestones</p>
+                                <h3>Professional Celebration Cake</h3>
+                                <p>Elegant corporate cake with sophisticated design elements</p>
                                 <div class="card-actions">
                                     <button class="action-btn"
                                         onclick="openLightbox('assets/images/sample7.png', 'Corporate Events', 'Professional cakes for business celebrations and milestones')">
@@ -401,19 +402,19 @@
     </div>
 
     <!-- Call to Action -->
-    <section class="cta-section"></section>
-    <div class="container">
-        <h2>Ready to Order?</h2>
-        <p>Contact us today to discuss your requirements and get a personalized quote.</p>
-        <div class="cta-buttons">
-            <a href="https://wa.me/254704939844" class="btn btn-primary">
-                <i class="fab fa-whatsapp"></i> WhatsApp Order
-            </a>
-            <a href="tel:0704939844" class="btn btn-secondary">
-                <i class="fas fa-phone"></i> Call Patricia
-            </a>
+    <section class="cta-section" style="padding: 80px 0; background: var(--light-gray); text-align: center;">
+        <div class="container">
+            <h2 style="font-size: 2.5rem; color: var(--primary-color); margin-bottom: 1rem;">Ready to Order?</h2>
+            <p style="font-size: 1.2rem; color: var(--medium-gray); margin-bottom: 2rem;">Contact us today to discuss your requirements and get a personalized quote.</p>
+            <div class="cta-buttons" style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="https://wa.me/254704939844" class="btn btn-primary">
+                    <i class="fab fa-whatsapp"></i> WhatsApp Order
+                </a>
+                <a href="tel:0704939844" class="btn btn-secondary">
+                    <i class="fas fa-phone"></i> Call Patricia
+                </a>
+            </div>
         </div>
-    </div>
     </section>
 
     <!-- Footer -->
