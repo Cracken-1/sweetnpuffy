@@ -172,9 +172,152 @@ function toggleChat() {
     }
 }
 
-function sendQuickReply(message) {
+function sendQuickReply(type) {
+    let message = '';
+    
+    switch(type) {
+        case 'order_cake':
+            message = `🎂 Hello Sweet n' Puffy!
+
+I would like to place an order for a cake. Here are my details:
+
+📋 ORDER DETAILS:
+• Cake Type: [Please specify - Birthday, Wedding, Anniversary, etc.]
+• Size: [Number of people it should serve]
+• Flavor: [Chocolate, Vanilla, Red Velvet, Carrot, etc.]
+• Design/Theme: [Describe your preferred design]
+• Special Requirements: [Any dietary restrictions or special requests]
+
+📅 EVENT DETAILS:
+• Event Date: [When do you need the cake]
+• Pickup/Delivery: [Pickup from Kenyatta Road, Juja OR Delivery to your location]
+• Budget Range: [Your preferred price range]
+
+📞 CONTACT:
+• Name: [Your full name]
+• Phone: [Your contact number]
+• Location: [Your area/address if delivery needed]
+
+Please provide me with a quote and availability. Thank you! 🙏`;
+            break;
+            
+        case 'check_pricing':
+            message = `💰 Hello Sweet n' Puffy!
+
+I would like to inquire about your pricing for the following:
+
+🍰 PRICING INQUIRY:
+• Product Type: [Cakes, Cupcakes, Pastries, Bread, etc.]
+• Specific Item: [e.g., Wedding Cake, Birthday Cake, Croissants]
+• Quantity/Size: [How many pieces or what size]
+• Event Date: [When do you need it]
+
+📋 ADDITIONAL INFO:
+• Special Requirements: [Any customizations needed]
+• Service Area: [Pickup or delivery location]
+• Budget Considerations: [Any budget constraints]
+
+Could you please share your current pricing and any package deals available? 
+
+Looking forward to your response! 🙏`;
+            break;
+            
+        case 'custom_design':
+            message = `🎨 Hello Sweet n' Puffy!
+
+I'm interested in a custom cake design and would like to discuss the possibilities:
+
+🎂 CUSTOM DESIGN REQUEST:
+• Occasion: [Birthday, Wedding, Anniversary, Corporate, etc.]
+• Theme/Concept: [Describe your vision in detail]
+• Size Requirements: [Number of servings needed]
+• Preferred Flavors: [Cake and frosting flavors]
+• Color Scheme: [Preferred colors for the design]
+• Special Elements: [Flowers, figures, logos, text, etc.]
+
+📅 PROJECT TIMELINE:
+• Event Date: [When is your event]
+• Consultation Preference: [In-person or phone discussion]
+• Reference Images: [I can share inspiration photos]
+
+💡 ADDITIONAL DETAILS:
+• Budget Range: [Your investment level for this custom piece]
+• Delivery/Pickup: [Location details]
+• Special Dietary Needs: [Allergies, preferences, etc.]
+
+I'd love to schedule a consultation to bring this vision to life! When would be a good time to discuss? 🌟`;
+            break;
+            
+        default:
+            message = `👋 Hello Sweet n' Puffy!
+
+I'm interested in your bakery services and would like to learn more about your offerings.
+
+Could you please provide information about:
+• Available products and services
+• Pricing and packages
+• Ordering process
+• Delivery options
+
+Thank you for your time! 🙏`;
+    }
+    
     const whatsappUrl = `https://wa.me/254704939844?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
+}
+
+// Function to generate detailed order messages
+function generateOrderMessage(productName, price, category = 'general') {
+    let emoji = '🍰';
+    let categoryText = 'item';
+    
+    // Set emoji and category based on product type
+    if (productName.toLowerCase().includes('cake')) {
+        emoji = '🎂';
+        categoryText = 'cake';
+    } else if (productName.toLowerCase().includes('cupcake')) {
+        emoji = '🧁';
+        categoryText = 'cupcakes';
+    } else if (productName.toLowerCase().includes('croissant') || productName.toLowerCase().includes('pastry') || productName.toLowerCase().includes('danish')) {
+        emoji = '🥐';
+        categoryText = 'pastries';
+    } else if (productName.toLowerCase().includes('bread') || productName.toLowerCase().includes('roll') || productName.toLowerCase().includes('baguette')) {
+        emoji = '🍞';
+        categoryText = 'bread';
+    } else if (productName.toLowerCase().includes('muffin')) {
+        emoji = '🧁';
+        categoryText = 'muffins';
+    } else if (productName.toLowerCase().includes('cookie')) {
+        emoji = '🍪';
+        categoryText = 'cookies';
+    } else if (productName.toLowerCase().includes('donut') || productName.toLowerCase().includes('doughnut')) {
+        emoji = '🍩';
+        categoryText = 'donuts';
+    }
+    
+    const message = `${emoji} Hello Sweet n' Puffy!
+
+I would like to place an order for your ${productName}.
+
+📋 ORDER DETAILS:
+• Product: ${productName}
+• Listed Price: ${price}
+• Quantity: [Please specify how many you need]
+• Special Requirements: [Any customizations or dietary needs]
+
+📅 DELIVERY DETAILS:
+• Needed Date: [When do you need this order]
+• Pickup/Delivery: [Pickup from Kenyatta Road, Juja OR Delivery to my location]
+• Event/Occasion: [What is this ${categoryText} for?]
+
+📞 MY CONTACT INFO:
+• Name: [Your full name]
+• Phone: [Your contact number]
+• Location: [Your area if delivery needed]
+
+Could you please confirm availability and total cost including any delivery charges? Thank you! 🙏`;
+
+    return encodeURIComponent(message);
 }
 
 
