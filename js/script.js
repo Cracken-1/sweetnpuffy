@@ -173,97 +173,304 @@ function toggleChat() {
 }
 
 function sendQuickReply(type) {
-    let message = '';
+    // Open the appropriate modal instead of direct WhatsApp
+    switch(type) {
+        case 'order_cake':
+            openChatModal('order_cake');
+            break;
+        case 'check_pricing':
+            openChatModal('check_pricing');
+            break;
+        case 'custom_design':
+            openChatModal('custom_design');
+            break;
+        default:
+            // For general inquiries, go directly to WhatsApp
+            const message = `👋 Hello Sweet n' Puffy! I'm interested in your bakery services. Could you help me with information about your products and services? Thank you! 🙏`;
+            const whatsappUrl = `https://wa.me/254704939844?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+    }
+}
+
+// Function to open chat-specific modals
+function openChatModal(type) {
+    let title = '';
+    let content = '';
     
     switch(type) {
         case 'order_cake':
-            message = `🎂 Hello Sweet n' Puffy!
-
-I would like to place an order for a cake. Here are my details:
-
-📋 ORDER DETAILS:
-• Cake Type: [Please specify - Birthday, Wedding, Anniversary, etc.]
-• Size: [Number of people it should serve]
-• Flavor: [Chocolate, Vanilla, Red Velvet, Carrot, etc.]
-• Design/Theme: [Describe your preferred design]
-• Special Requirements: [Any dietary restrictions or special requests]
-
-📅 EVENT DETAILS:
-• Event Date: [When do you need the cake]
-• Pickup/Delivery: [Pickup from Kenyatta Road, Juja OR Delivery to your location]
-• Budget Range: [Your preferred price range]
-
-📞 CONTACT:
-• Name: [Your full name]
-• Phone: [Your contact number]
-• Location: [Your area/address if delivery needed]
-
-Please provide me with a quote and availability. Thank you! 🙏`;
+            title = '🎂 Order a Cake';
+            content = `
+                <div class="chat-modal-form">
+                    <div class="form-group">
+                        <label for="cakeType">What type of cake? *</label>
+                        <select id="cakeType" required>
+                            <option value="">Select cake type</option>
+                            <option value="Birthday Cake">Birthday Cake</option>
+                            <option value="Wedding Cake">Wedding Cake</option>
+                            <option value="Anniversary Cake">Anniversary Cake</option>
+                            <option value="Corporate Cake">Corporate Cake</option>
+                            <option value="Graduation Cake">Graduation Cake</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cakeSize">How many people? *</label>
+                            <input type="number" id="cakeSize" min="1" placeholder="e.g. 20" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="cakeFlavor">Preferred flavor? *</label>
+                            <select id="cakeFlavor" required>
+                                <option value="">Select flavor</option>
+                                <option value="Chocolate">Chocolate</option>
+                                <option value="Vanilla">Vanilla</option>
+                                <option value="Red Velvet">Red Velvet</option>
+                                <option value="Carrot">Carrot</option>
+                                <option value="Black Forest">Black Forest</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cakeDate">When do you need it? *</label>
+                        <input type="date" id="cakeDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cakeTheme">Theme/Design (Optional)</label>
+                        <textarea id="cakeTheme" placeholder="Describe your preferred design, colors, decorations..."></textarea>
+                    </div>
+                </div>
+            `;
             break;
             
         case 'check_pricing':
-            message = `💰 Hello Sweet n' Puffy!
-
-I would like to inquire about your pricing for the following:
-
-🍰 PRICING INQUIRY:
-• Product Type: [Cakes, Cupcakes, Pastries, Bread, etc.]
-• Specific Item: [e.g., Wedding Cake, Birthday Cake, Croissants]
-• Quantity/Size: [How many pieces or what size]
-• Event Date: [When do you need it]
-
-📋 ADDITIONAL INFO:
-• Special Requirements: [Any customizations needed]
-• Service Area: [Pickup or delivery location]
-• Budget Considerations: [Any budget constraints]
-
-Could you please share your current pricing and any package deals available? 
-
-Looking forward to your response! 🙏`;
+            title = '💰 Check Pricing';
+            content = `
+                <div class="chat-modal-form">
+                    <div class="form-group">
+                        <label for="priceProduct">What are you interested in? *</label>
+                        <select id="priceProduct" required>
+                            <option value="">Select product type</option>
+                            <option value="Cakes">Cakes</option>
+                            <option value="Cupcakes">Cupcakes</option>
+                            <option value="Pastries">Pastries</option>
+                            <option value="Bread & Rolls">Bread & Rolls</option>
+                            <option value="Party Platters">Party Platters</option>
+                            <option value="Wedding Package">Wedding Package</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="priceQuantity">Quantity needed</label>
+                            <input type="text" id="priceQuantity" placeholder="e.g. 1 cake, 50 cupcakes">
+                        </div>
+                        <div class="form-group">
+                            <label for="priceDate">Event date</label>
+                            <input type="date" id="priceDate">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="priceBudget">Budget range (Optional)</label>
+                        <select id="priceBudget">
+                            <option value="">Select budget range</option>
+                            <option value="Under KSh 2,000">Under KSh 2,000</option>
+                            <option value="KSh 2,000 - 5,000">KSh 2,000 - 5,000</option>
+                            <option value="KSh 5,000 - 10,000">KSh 5,000 - 10,000</option>
+                            <option value="Above KSh 10,000">Above KSh 10,000</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="priceDetails">Additional details</label>
+                        <textarea id="priceDetails" placeholder="Any specific requirements or questions..."></textarea>
+                    </div>
+                </div>
+            `;
             break;
             
         case 'custom_design':
-            message = `🎨 Hello Sweet n' Puffy!
-
-I'm interested in a custom cake design and would like to discuss the possibilities:
-
-🎂 CUSTOM DESIGN REQUEST:
-• Occasion: [Birthday, Wedding, Anniversary, Corporate, etc.]
-• Theme/Concept: [Describe your vision in detail]
-• Size Requirements: [Number of servings needed]
-• Preferred Flavors: [Cake and frosting flavors]
-• Color Scheme: [Preferred colors for the design]
-• Special Elements: [Flowers, figures, logos, text, etc.]
-
-📅 PROJECT TIMELINE:
-• Event Date: [When is your event]
-• Consultation Preference: [In-person or phone discussion]
-• Reference Images: [I can share inspiration photos]
-
-💡 ADDITIONAL DETAILS:
-• Budget Range: [Your investment level for this custom piece]
-• Delivery/Pickup: [Location details]
-• Special Dietary Needs: [Allergies, preferences, etc.]
-
-I'd love to schedule a consultation to bring this vision to life! When would be a good time to discuss? 🌟`;
+            title = '🎨 Custom Design';
+            content = `
+                <div class="chat-modal-form">
+                    <div class="form-group">
+                        <label for="designOccasion">What's the occasion? *</label>
+                        <select id="designOccasion" required>
+                            <option value="">Select occasion</option>
+                            <option value="Wedding">Wedding</option>
+                            <option value="Birthday">Birthday</option>
+                            <option value="Anniversary">Anniversary</option>
+                            <option value="Corporate Event">Corporate Event</option>
+                            <option value="Baby Shower">Baby Shower</option>
+                            <option value="Graduation">Graduation</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="designSize">Size needed *</label>
+                            <input type="text" id="designSize" placeholder="e.g. serves 50 people" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="designDate">Event date *</label>
+                            <input type="date" id="designDate" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="designConcept">Design concept *</label>
+                        <textarea id="designConcept" placeholder="Describe your vision: theme, colors, style, decorations..." required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="designBudget">Budget range</label>
+                        <select id="designBudget">
+                            <option value="">Select budget range</option>
+                            <option value="KSh 5,000 - 10,000">KSh 5,000 - 10,000</option>
+                            <option value="KSh 10,000 - 20,000">KSh 10,000 - 20,000</option>
+                            <option value="KSh 20,000 - 50,000">KSh 20,000 - 50,000</option>
+                            <option value="Above KSh 50,000">Above KSh 50,000</option>
+                        </select>
+                    </div>
+                </div>
+            `;
             break;
-            
-        default:
-            message = `👋 Hello Sweet n' Puffy!
-
-I'm interested in your bakery services and would like to learn more about your offerings.
-
-Could you please provide information about:
-• Available products and services
-• Pricing and packages
-• Ordering process
-• Delivery options
-
-Thank you for your time! 🙏`;
     }
     
+    // Create and show the modal
+    showChatModal(title, content, type);
+}
+
+// Function to show chat modal
+function showChatModal(title, content, type) {
+    // Create modal HTML
+    const modalHTML = `
+        <div id="chatModal" class="order-modal">
+            <div class="order-modal-content">
+                <div class="order-modal-header">
+                    <h3>${title}</h3>
+                    <button class="order-modal-close" onclick="closeChatModal()">&times;</button>
+                </div>
+                <div class="order-modal-body">
+                    ${content}
+                    <div class="form-group">
+                        <label for="chatName">Your name *</label>
+                        <input type="text" id="chatName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="chatPhone">Your phone *</label>
+                        <input type="tel" id="chatPhone" required>
+                    </div>
+                    <button type="button" class="order-submit-btn" onclick="submitChatForm('${type}')">
+                        <i class="fab fa-whatsapp"></i>
+                        Send via WhatsApp
+                    </button>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    // Remove existing modal if any
+    const existingModal = document.getElementById('chatModal');
+    if (existingModal) {
+        existingModal.remove();
+    }
+    
+    // Add modal to body
+    document.body.insertAdjacentHTML('beforeend', modalHTML);
+    
+    // Show modal
+    document.getElementById('chatModal').style.display = 'block';
+    
+    // Set minimum date to today
+    const dateInputs = document.querySelectorAll('#chatModal input[type="date"]');
+    const today = new Date().toISOString().split('T')[0];
+    dateInputs.forEach(input => input.setAttribute('min', today));
+}
+
+// Function to close chat modal
+function closeChatModal() {
+    const modal = document.getElementById('chatModal');
+    if (modal) {
+        modal.remove();
+    }
+}
+
+// Function to submit chat form
+function submitChatForm(type) {
+    const name = document.getElementById('chatName').value;
+    const phone = document.getElementById('chatPhone').value;
+    
+    if (!name || !phone) {
+        alert('Please fill in your name and phone number');
+        return;
+    }
+    
+    let message = '';
+    let emoji = '';
+    
+    switch(type) {
+        case 'order_cake':
+            emoji = '🎂';
+            const cakeType = document.getElementById('cakeType').value;
+            const cakeSize = document.getElementById('cakeSize').value;
+            const cakeFlavor = document.getElementById('cakeFlavor').value;
+            const cakeDate = document.getElementById('cakeDate').value;
+            const cakeTheme = document.getElementById('cakeTheme').value;
+            
+            message = `${emoji} *CAKE ORDER REQUEST*\n\n`;
+            message += `*Type:* ${cakeType}\n`;
+            message += `*Size:* ${cakeSize} people\n`;
+            message += `*Flavor:* ${cakeFlavor}\n`;
+            message += `*Needed by:* ${formatDate(cakeDate)}\n`;
+            if (cakeTheme) message += `*Design:* ${cakeTheme}\n`;
+            message += `*Customer:* ${name}\n`;
+            message += `*Phone:* ${phone}\n\n`;
+            message += `Please provide quote and availability. Thank you! 🙏`;
+            break;
+            
+        case 'check_pricing':
+            emoji = '💰';
+            const priceProduct = document.getElementById('priceProduct').value;
+            const priceQuantity = document.getElementById('priceQuantity').value;
+            const priceDate = document.getElementById('priceDate').value;
+            const priceBudget = document.getElementById('priceBudget').value;
+            const priceDetails = document.getElementById('priceDetails').value;
+            
+            message = `${emoji} *PRICING INQUIRY*\n\n`;
+            message += `*Product:* ${priceProduct}\n`;
+            if (priceQuantity) message += `*Quantity:* ${priceQuantity}\n`;
+            if (priceDate) message += `*Event date:* ${formatDate(priceDate)}\n`;
+            if (priceBudget) message += `*Budget:* ${priceBudget}\n`;
+            if (priceDetails) message += `*Details:* ${priceDetails}\n`;
+            message += `*Customer:* ${name}\n`;
+            message += `*Phone:* ${phone}\n\n`;
+            message += `Please share your pricing information. Thank you! 🙏`;
+            break;
+            
+        case 'custom_design':
+            emoji = '🎨';
+            const designOccasion = document.getElementById('designOccasion').value;
+            const designSize = document.getElementById('designSize').value;
+            const designDate = document.getElementById('designDate').value;
+            const designConcept = document.getElementById('designConcept').value;
+            const designBudget = document.getElementById('designBudget').value;
+            
+            message = `${emoji} *CUSTOM DESIGN REQUEST*\n\n`;
+            message += `*Occasion:* ${designOccasion}\n`;
+            message += `*Size:* ${designSize}\n`;
+            message += `*Event date:* ${formatDate(designDate)}\n`;
+            message += `*Concept:* ${designConcept}\n`;
+            if (designBudget) message += `*Budget:* ${designBudget}\n`;
+            message += `*Customer:* ${name}\n`;
+            message += `*Phone:* ${phone}\n\n`;
+            message += `I'd love to discuss this design! When can we schedule a consultation? 🌟`;
+            break;
+    }
+    
+    // Open WhatsApp
     const whatsappUrl = `https://wa.me/254704939844?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
+    
+    // Close modal
+    closeChatModal();
 }
 
 // Global variables for order modal
