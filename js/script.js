@@ -1,13 +1,58 @@
 // DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM Content Loaded - JavaScript is working');
+    
     // Initialize all functionality
-    initNavigation();
-    initGalleryFilters();
-    initMenuFilters();
-    initMap();
-    initContactForm();
-    initScrollAnimations();
-    initSmoothScrolling();
+    try {
+        initNavigation();
+        console.log('Navigation initialized');
+    } catch (e) {
+        console.error('Navigation init error:', e);
+    }
+    
+    try {
+        initGalleryFilters();
+        console.log('Gallery filters initialized');
+    } catch (e) {
+        console.error('Gallery filters init error:', e);
+    }
+    
+    try {
+        initMenuFilters();
+        console.log('Menu filters initialized');
+    } catch (e) {
+        console.error('Menu filters init error:', e);
+    }
+    
+    try {
+        initMap();
+        console.log('Map initialized');
+    } catch (e) {
+        console.error('Map init error:', e);
+    }
+    
+    try {
+        initContactForm();
+        console.log('Contact form initialized');
+    } catch (e) {
+        console.error('Contact form init error:', e);
+    }
+    
+    try {
+        initScrollAnimations();
+        console.log('Scroll animations initialized');
+    } catch (e) {
+        console.error('Scroll animations init error:', e);
+    }
+    
+    try {
+        initSmoothScrolling();
+        console.log('Smooth scrolling initialized');
+    } catch (e) {
+        console.error('Smooth scrolling init error:', e);
+    }
+    
+    console.log('All initialization complete');
 });
 
 // Navigation functionality
@@ -16,19 +61,28 @@ function initNavigation() {
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
 
-    // Toggle mobile menu
-    hamburger.addEventListener('click', function() {
-        hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
+    console.log('Navigation elements:', { hamburger, navMenu, navLinks: navLinks.length });
 
-    // Close mobile menu when clicking on a link
-    navLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            hamburger.classList.remove('active');
-            navMenu.classList.remove('active');
+    // Check if elements exist before adding event listeners
+    if (hamburger && navMenu) {
+        // Toggle mobile menu
+        hamburger.addEventListener('click', function(e) {
+            e.preventDefault();
+            console.log('Hamburger clicked');
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
         });
-    });
+
+        // Close mobile menu when clicking on a link
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+    } else {
+        console.error('Navigation elements not found:', { hamburger, navMenu });
+    }
 
     // Navbar scroll effect
     window.addEventListener('scroll', function() {
@@ -173,22 +227,31 @@ function toggleChat() {
 }
 
 function sendQuickReply(type) {
-    // Open the appropriate modal instead of direct WhatsApp
-    switch(type) {
-        case 'order_cake':
-            openChatModal('order_cake');
-            break;
-        case 'check_pricing':
-            openChatModal('check_pricing');
-            break;
-        case 'custom_design':
-            openChatModal('custom_design');
-            break;
-        default:
-            // For general inquiries, go directly to WhatsApp
-            const message = `👋 Hello Sweet n' Puffy! I'm interested in your bakery services. Could you help me with information about your products and services? Thank you! 🙏`;
-            const whatsappUrl = `https://wa.me/254704939844?text=${encodeURIComponent(message)}`;
-            window.open(whatsappUrl, '_blank');
+    console.log('sendQuickReply called with type:', type);
+    try {
+        // Open the appropriate modal instead of direct WhatsApp
+        switch(type) {
+            case 'order_cake':
+                openChatModal('order_cake');
+                break;
+            case 'check_pricing':
+                openChatModal('check_pricing');
+                break;
+            case 'custom_design':
+                openChatModal('custom_design');
+                break;
+            default:
+                // For general inquiries, go directly to WhatsApp
+                const message = `👋 Hello Sweet n' Puffy! I'm interested in your bakery services. Could you help me with information about your products and services? Thank you! 🙏`;
+                const whatsappUrl = `https://wa.me/254704939844?text=${encodeURIComponent(message)}`;
+                window.open(whatsappUrl, '_blank');
+        }
+    } catch (error) {
+        console.error('Error in sendQuickReply:', error);
+        // Fallback to direct WhatsApp
+        const fallbackMessage = `👋 Hello Sweet n' Puffy! I'm interested in your bakery services.`;
+        const fallbackUrl = `https://wa.me/254704939844?text=${encodeURIComponent(fallbackMessage)}`;
+        window.open(fallbackUrl, '_blank');
     }
 }
 
@@ -479,15 +542,38 @@ let currentPrice = '';
 
 // Function to open order modal
 function openOrderModal(productName, price) {
-    currentProduct = productName;
-    currentPrice = price;
-    
-    document.getElementById('modalTitle').textContent = `Order ${productName}`;
-    document.getElementById('orderModal').style.display = 'block';
-    
-    // Set minimum date to today
-    const today = new Date().toISOString().split('T')[0];
-    document.getElementById('eventDate').setAttribute('min', today);
+    console.log('openOrderModal called:', productName, price);
+    try {
+        currentProduct = productName;
+        currentPrice = price;
+        
+        const modalTitle = document.getElementById('modalTitle');
+        const orderModal = document.getElementById('orderModal');
+        const eventDate = document.getElementById('eventDate');
+        
+        if (modalTitle && orderModal) {
+            modalTitle.textContent = `Order ${productName}`;
+            orderModal.style.display = 'block';
+            
+            // Set minimum date to today
+            if (eventDate) {
+                const today = new Date().toISOString().split('T')[0];
+                eventDate.setAttribute('min', today);
+            }
+        } else {
+            console.error('Modal elements not found');
+            // Fallback to direct WhatsApp
+            const message = `🍰 Hello! I'd like to order ${productName} (${price}). Please provide details and availability. Thank you!`;
+            const whatsappUrl = `https://wa.me/254704939844?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
+        }
+    } catch (error) {
+        console.error('Error in openOrderModal:', error);
+        // Fallback to direct WhatsApp
+        const message = `🍰 Hello! I'd like to order ${productName} (${price}). Please provide details and availability. Thank you!`;
+        const whatsappUrl = `https://wa.me/254704939844?text=${encodeURIComponent(message)}`;
+        window.open(whatsappUrl, '_blank');
+    }
 }
 
 // Function to close order modal
@@ -1045,4 +1131,22 @@ document.addEventListener('DOMContentLoaded', function() {
             trackEvent('scroll_depth', 'engagement', `${scrollPercent}%`, scrollPercent);
         }
     });
-});
+});// 
+Make functions globally available
+window.sendQuickReply = sendQuickReply;
+window.openOrderModal = openOrderModal;
+window.openChatModal = openChatModal;
+window.closeOrderModal = closeOrderModal;
+window.closeChatModal = closeChatModal;
+window.submitOrder = submitOrder;
+window.submitChatForm = submitChatForm;
+
+// Debug function to test WhatsApp
+window.testWhatsApp = function() {
+    const message = "Test message from Sweet n' Puffy website";
+    const url = `https://wa.me/254704939844?text=${encodeURIComponent(message)}`;
+    console.log('Testing WhatsApp URL:', url);
+    window.open(url, '_blank');
+};
+
+console.log('All functions loaded and available globally');
